@@ -5,7 +5,7 @@ variable "domain_name" {
 
 variable "google_enable" {
   type = bool
-  default = true
+  default = false
 }
 
 variable "txt_records" {
