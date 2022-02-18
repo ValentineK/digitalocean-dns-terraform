@@ -3,6 +3,11 @@ variable "domain_name" {
   default = "konov.su"
 }
 
+variable "apple_enable" {
+  type = bool
+  default = false
+}
+
 variable "google_enable" {
   type = bool
   default = false
