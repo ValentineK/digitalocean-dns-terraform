@@ -53,3 +53,15 @@ resource "digitalocean_record" "cname" {
 
   depends_on = [ digitalocean_record.a ]
 }
+
+resource "digitalocean_record" "mx" {
+  for_each   = {for index, prop in var.mx_records:  "${prop.priority}/${prop.target}" => prop}
+  domain   = digitalocean_domain.domain.name
+
+  type     = "MX"
+  name     = "@"
+  priority = each.value.priority
+  value    = each.value.target
+
+  depends_on = [ digitalocean_domain.domain ]
+}

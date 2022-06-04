@@ -39,3 +39,12 @@ variable "cname_records" {
   default = [
   ]
 }
+
+variable "mx_records" {
+  type = list(object({
+    priority = string
+    target   = string
+  }))
+  default = [
+  ]
+}
